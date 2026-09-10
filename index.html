@@ -83,9 +83,9 @@ header{
   box-shadow:0 5px 20px rgba(30,0,55,.35);
   backdrop-filter:blur(12px)
 }
-.header-inner{max-width:430px;margin:auto;min-height:50px;padding:7px 8px;display:flex;align-items:center;gap:7px}
-.icon{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.1);font-size:14px}
-.header-title{font-size:12px;font-weight:900;flex:1}
+.header-inner{max-width:430px;margin:auto;min-height:50px;padding:7px 8px;display:flex;align-items:center;gap:7px;position:relative;justify-content:center}
+.icon{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.1);font-size:14px;position:absolute;left:8px;z-index:3}
+.header-title{font-size:12px;font-weight:900;text-align:center;z-index:2;margin:0 auto;}
 
 /* Hero */
 .hero{
@@ -198,17 +198,6 @@ header{
 .swoosh-yellow{background:#e9d25d}
 .swoosh-gold{background:#d9b95b}
 
-/* Comparison */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
-.compare-card{background:#fff;color:#25152f;border-radius:7px;padding:7px}
-.compare-label{font-size:7.5px;font-weight:900;margin-bottom:6px}
-.ok{color:#079c67}.bad{color:#e33c3c}
-.compare-row{display:flex;gap:6px;align-items:center}
-.compare-dp,.fake{width:40px;height:40px;flex-shrink:0}
-.compare-dp img{width:40px;height:40px;object-fit:cover;border-radius:50%;border:2px solid #ffbd42}
-.fake{border-radius:50%;background:#e5e7eb;display:grid;place-items:center;color:#999;font-size:15px}
-.compare-name{font-size:9px;font-weight:900}
-
 /* Verify */
 .verify{display:flex;gap:5px;margin-top:5px}
 .verify input{flex:1;min-width:0;height:31px;border:1px solid rgba(255,198,70,.5);border-radius:6px;padding:0 7px;background:rgba(20,0,50,.4);color:#fff;outline:none;font-size:9px}
@@ -228,34 +217,6 @@ header{
 .footer{margin-top:9px;padding:8px;text-align:center;border-radius:7px;background:rgba(42,0,78,.55);border:1px solid rgba(255,193,68,.45);color:#e4cfea;font-size:8.5px;line-height:1.5}
 .toast{position:fixed;left:50%;bottom:15px;transform:translate(-50%,30px);padding:7px 12px;border-radius:7px;background:#32065f;border:1px solid #ff4fc3;color:#fff;font-size:9px;font-weight:800;opacity:0;pointer-events:none;transition:.25s;z-index:100}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-
-
-
-/* Final hero title correction */
-.hero-title-box{display:flex;align-items:center;justify-content:center;gap:8px;width:88%;margin:8px auto 0;padding:9px 8px;min-height:0;border-radius:10px}
-.hero-title-box h1{
-  display:flex;align-items:center;justify-content:center;gap:5px;
-  margin:0;white-space:nowrap;font-size:18px;line-height:1.15
-}
-.hero-vtag{
-  width:27px!important;height:27px!important;flex:0 0 27px;
-  object-fit:contain!important;border:0!important;border-radius:0!important;
-  box-shadow:none!important;margin:0!important
-}
-.hero-title-box .hero-crown{
-  display:inline-block;font-size:25px;line-height:1;flex:0 0 auto;
-}
-@media(max-width:390px){
-  .hero-title-box{padding:9px 4px}
-  .hero-title-box h1{font-size:14px;gap:4px}
-  .hero-vtag{width:22px!important;height:22px!important;flex-basis:22px}
-  .hero-title-box .hero-crown{font-size:21px}
-}
-@media(max-width:340px){
-  .hero-title-box h1{font-size:12.5px;gap:3px}
-  .hero-vtag{width:19px!important;height:19px!important;flex-basis:19px}
-  .hero-title-box .hero-crown{font-size:18px}
-}
 
 /* ===== Focused reference sections ===== */
 .hero-reference{
@@ -284,11 +245,6 @@ header{
 .hero-title-box h1{
   margin:0;font-size:19px;line-height:1.15;
   text-shadow:0 2px 9px rgba(255,255,255,.45);
-}
-.hero-mark{
-  width:30px;height:30px;flex-shrink:0;border-radius:50%;
-  display:grid;place-items:center;font-size:17px;font-weight:900;
-  background:rgba(63,117,255,.7);border:1px solid rgba(255,255,255,.55)
 }
 .hero-crown{font-size:28px;color:#ffd447;text-shadow:0 0 12px #ffcf32}
 .hero-reference p{font-size:9px;margin-top:7px}
@@ -338,7 +294,6 @@ header{
   font-size:8.8px;line-height:1.55;color:#f4e8f8
 }
 
-
 /* ===== Final title + compact StarMaker branding fix ===== */
 .hero-title-box{gap:7px;padding:9px 7px}
 .hero-vtag{
@@ -351,7 +306,10 @@ header{
 .official-info h3{gap:0}
 .official-info h3 .vtag{display:none!important}
 
-@media(max-width:360px){
+@media(max-width:390px){
+  header .header-inner{justify-content:center}
+  header .icon{left:8px;}
+  header .header-title{font-size:11px!important;}
   .wrap{padding-left:6px;padding-right:6px}
   .panel-body{font-size:9.5px}
   .hero img{width:62px;height:62px}
@@ -367,14 +325,11 @@ header{
   .official-info h3{font-size:16px}
   .official-meta{font-size:8px}
   .vtag{width:13px!important;height:13px!important}
-  .dp{width:52px;height:52px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;scroll-behavior:auto!important}
 }
-</style>
 
-<style id="global-90-width-fix">
 /* All page boxes/cards: 90% width */
 .starmaker-page > *,
 .container > *,
@@ -396,210 +351,10 @@ header{
   margin-right: auto !important;
 }
 
-/* Keep the top/header bars full width */
-header,
-.topbar,
-.navbar,
-.app-header,
-.site-header {
-  width: 100% !important;
-  max-width: 100% !important;
-}
+header, .topbar, .navbar, .app-header, .site-header { width: 100% !important; max-width: 100% !important; }
+.profile-card img, .official-card img { max-width: 100%; }
 
-/* Prevent internal card content from being squeezed */
-.profile-card img,
-.official-card img {
-  max-width: 100%;
-}
-</style>
-
-
-<style id="hero-title-inside-fix">
-/* ===== HERO TITLE: V TAG + TITLE + STAR ALL INSIDE THE BOX ===== */
-.hero{
-  overflow:hidden !important;
-}
-.hero-title-box{
-  box-sizing:border-box !important;
-  width:90% !important;
-  max-width:90% !important;
-  margin:8px auto 0 !important;
-  padding:8px 10px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:7px !important;
-  overflow:hidden !important;
-  white-space:nowrap !important;
-}
-.hero-title-box .hero-vtag{
-  width:24px !important;
-  height:24px !important;
-  min-width:24px !important;
-  max-width:24px !important;
-  flex:0 0 24px !important;
-  object-fit:contain !important;
-  margin:0 !important;
-}
-.hero-title-box h1{
-  min-width:0 !important;
-  flex:1 1 auto !important;
-  margin:0 !important;
-  padding:0 !important;
-  font-size:17px !important;
-  line-height:1.1 !important;
-  text-align:center !important;
-  white-space:nowrap !important;
-  overflow:hidden !important;
-  text-overflow:ellipsis !important;
-}
-.hero-title-box .hero-crown{
-  flex:0 0 auto !important;
-  font-size:22px !important;
-  line-height:1 !important;
-  margin:0 !important;
-}
-@media(max-width:390px){
-  .hero-title-box{
-    width:92% !important;
-    max-width:92% !important;
-    padding:8px 7px !important;
-    gap:5px !important;
-  }
-  .hero-title-box .hero-vtag{
-    width:22px !important;
-    height:22px !important;
-    min-width:22px !important;
-    max-width:22px !important;
-  }
-  .hero-title-box h1{
-    font-size:14px !important;
-    letter-spacing:-.15px !important;
-  }
-  .hero-title-box .hero-crown{
-    font-size:19px !important;
-  }
-}
-</style>
-
-
-<style id="final-compact-hero-title">
 /* Compact: blue V + title + star */
-.hero-title-box{
-  width:92%!important;
-  max-width:92%!important;
-  padding:5px 6px!important;
-  gap:4px!important;
-  min-height:0!important;
-}
-
-.hero-title-box .hero-vtag{
-  width:15px!important;
-  height:15px!important;
-  min-width:15px!important;
-  max-width:15px!important;
-  flex:0 0 15px!important;
-}
-
-.hero-title-box h1{
-  font-size:11.5px!important;
-  line-height:1.05!important;
-  letter-spacing:-.15px!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
-  white-space:nowrap!important;
-}
-
-.hero-title-box .hero-crown{
-  font-size:14px!important;
-  line-height:1!important;
-  flex:0 0 auto!important;
-}
-
-@media(max-width:390px){
-  .hero-title-box{
-    width:94%!important;
-    max-width:94%!important;
-    padding:5px 5px!important;
-    gap:3px!important;
-  }
-  .hero-title-box .hero-vtag{
-    width:14px!important;
-    height:14px!important;
-    min-width:14px!important;
-    max-width:14px!important;
-    flex-basis:14px!important;
-  }
-  .hero-title-box h1{
-    font-size:10.5px!important;
-  }
-  .hero-title-box .hero-crown{
-    font-size:13px!important;
-  }
-}
-
-@media(max-width:340px){
-  .hero-title-box h1{
-    font-size:9.5px!important;
-  }
-  .hero-title-box .hero-vtag{
-    width:13px!important;
-    height:13px!important;
-    min-width:13px!important;
-    max-width:13px!important;
-    flex-basis:13px!important;
-  }
-  .hero-title-box .hero-crown{
-    font-size:12px!important;
-  }
-}
-</style>
-
-
-<style id="final-title-no-cut">
-.hero-title-box{
-  display:grid!important;
-  grid-template-columns:auto minmax(0,1fr) auto!important;
-  align-items:center!important;
-  width:92%!important; max-width:92%!important;
-  box-sizing:border-box!important;
-  padding:5px 7px!important;
-  gap:5px!important;
-  overflow:hidden!important;
-}
-.hero-title-box .hero-vtag{
-  width:15px!important;height:15px!important;
-  min-width:15px!important;max-width:15px!important;
-  display:block!important;
-}
-.hero-title-box h1{
-  min-width:0!important; width:auto!important;
-  margin:0!important; padding:0!important;
-  font-size:clamp(9px,2.8vw,13px)!important;
-  line-height:1.1!important; letter-spacing:-.1px!important;
-  white-space:nowrap!important; overflow:hidden!important;
-  text-overflow:clip!important;
-}
-.hero-title-box .hero-crown{
-  font-size:15px!important; line-height:1!important;
-  flex:none!important; white-space:nowrap!important;
-}
-@media(max-width:390px){
- .hero-title-box{width:94%!important;max-width:94%!important;padding:5px 6px!important;gap:4px!important}
- .hero-title-box .hero-vtag{width:14px!important;height:14px!important;min-width:14px!important;max-width:14px!important}
- .hero-title-box h1{font-size:clamp(8.5px,2.9vw,11.5px)!important;letter-spacing:-.15px!important}
- .hero-title-box .hero-crown{font-size:13px!important}
-}
-@media(max-width:340px){
- .hero-title-box h1{font-size:8px!important;letter-spacing:-.2px!important}
- .hero-title-box .hero-vtag{width:13px!important;height:13px!important;min-width:13px!important;max-width:13px!important}
- .hero-title-box .hero-crown{font-size:12px!important}
-}
-</style>
-
-
-<style id="hero-auto-rail-final">
-/* ===== HERO TITLE: COMPACT + AUTO RAIL ===== */
 .hero-title-box{
   width:96%!important;
   max-width:96%!important;
@@ -659,111 +414,79 @@ header,
   margin:0!important;
 }
 
-/* When the title is wider than the box, JS adds this class and animates
-   the complete V + title + star together like a small rail. */
 .hero-title-track.is-rail{
   animation:heroTitleRail var(--hero-rail-duration, 7s) ease-in-out infinite alternate;
 }
 
 @keyframes heroTitleRail{
-  0%, 20%{
-    transform:translate3d(0,0,0);
-  }
-  42%, 58%{
-    transform:translate3d(calc(-1 * var(--hero-slide-distance)),0,0);
-  }
-  80%, 100%{
-    transform:translate3d(0,0,0);
-  }
+  0%, 20%{ transform:translate3d(0,0,0); }
+  42%, 58%{ transform:translate3d(calc(-1 * var(--hero-slide-distance)),0,0); }
+  80%, 100%{ transform:translate3d(0,0,0); }
 }
 
 @media(max-width:390px){
-  .hero-title-box{
-    width:96%!important;
-    max-width:96%!important;
-    padding:5px 5px!important;
-  }
-  .hero-title-track{
-    gap:3px!important;
-  }
-  .hero-title-track .hero-vtag{
-    width:15px!important;
-    height:15px!important;
-    min-width:15px!important;
-    max-width:15px!important;
-    flex-basis:15px!important;
-  }
-  .hero-title-track h1{
-    font-size:10.5px!important;
-  }
-  .hero-title-track .hero-crown{
-    font-size:14px!important;
-  }
-}
-</style>
-
-
-<style id="hero-title-always-slide">
-/* ===== TITLE AUTO HIGHLIGHT SLIDE ===== */
-.hero-title-viewport{
-  overflow:hidden!important;
-  width:100%!important;
-}
-.hero-title-track{
-  display:flex!important;
-  width:max-content!important;
-  max-width:none!important;
-  flex-wrap:nowrap!important;
-  white-space:nowrap!important;
-  transform:translate3d(0,0,0)!important;
-  animation:heroTitleHighlight 6s ease-in-out infinite!important;
-}
-@keyframes heroTitleHighlight{
-  0%,18%{transform:translate3d(0,0,0)!important;}
-  43%{transform:translate3d(-65px,0,0)!important;}
-  58%,68%{transform:translate3d(-65px,0,0)!important;}
-  93%{transform:translate3d(0,0,0)!important;}
-  100%{transform:translate3d(0,0,0)!important;}
-}
-</style>
-
-
-<style id="final-top-title-center">
-/* ===== TOP HEADER TITLE: EXACT CENTER ===== */
-header .header-inner{
-  position:relative!important;
-  justify-content:space-between!important;
+  .hero-title-box{ width:96%!important; max-width:96%!important; padding:5px 5px!important; }
+  .hero-title-track{ gap:3px!important; }
+  .hero-title-track .hero-vtag{ width:15px!important; height:15px!important; min-width:15px!important; max-width:15px!important; flex-basis:15px!important; }
+  .hero-title-track h1{ font-size:10.5px!important; }
+  .hero-title-track .hero-crown{ font-size:14px!important; }
 }
 
-header .header-title{
-  position:absolute!important;
-  left:50%!important;
-  top:50%!important;
-  transform:translate(-50%,-50%)!important;
-  width:max-content!important;
-  max-width:calc(100% - 110px)!important;
-  margin:0!important;
-  text-align:center!important;
-  flex:none!important;
-  z-index:2!important;
-}
-
-header .header-inner > .icon:first-child{
-  position:relative!important;
-  z-index:3!important;
-}
+/* FINAL COMPACT BOX SIZE */
+.container{ width:min(92%, 560px)!important; margin-left:auto!important; margin-right:auto!important; }
+.panel{ margin:10px 0!important; border-radius:10px!important; }
+.panel-title{ padding:7px 9px!important; font-size:11px!important; }
+.panel-body{ padding:9px!important; }
+.hero-reference{ padding:7px 6px 7px!important; border-radius:12px!important; width:100%!important; box-sizing:border-box!important; }
+.hero-reference>img{ width:42px!important; height:42px!important; border-radius:7px!important; margin-bottom:0!important; }
+.hero-title-box{ min-height:0!important; padding:7px 5px!important; border-radius:8px!important; }
+.hero-title-box h1{ font-size:13px!important; gap:3px!important; }
+.hero-reference p{ font-size:8px!important; margin-top:4px!important; }
+.focus-panel .focus-body{ padding:8px!important; }
+.focus-heading{ font-size:10px!important; margin-bottom:4px!important; }
+.focus-body>p, .communication>p{ font-size:8.8px!important; line-height:1.4!important; margin-bottom:6px!important; }
+.focus-note{ margin:6px 0!important; padding:6px!important; font-size:8.8px!important; }
+.inner-title{ margin:0 -8px 7px!important; padding:6px!important; font-size:10px!important; }
+.comm-item{ margin:5px 0!important; }
+.comm-item strong{font-size:9.5px!important}
+.comm-item small{font-size:8px!important}
+.example-box{ margin-top:5px!important; padding:6px!important; }
+.example-title{font-size:9px!important}
+.example-message{ padding:5px!important; font-size:7.8px!important; }
+.cards{ gap:5px!important; width:100%!important; }
+.search-box{ padding:6px!important; margin-bottom:7px!important; }
+.search-box input{ padding:7px 9px!important; font-size:9px!important; }
+.official-card{ min-height:118px!important; border-radius:5px!important; border-width:1.5px!important; width:100%!important; box-sizing:border-box!important;}
+.mini-brand{ height:21px!important; font-size:6.5px!important; }
+.mini-brand img{ width:14px!important; height:13px!important; }
+.official-content{ min-height:77px!important; padding:6px 7px 18px!important; gap:5px!important; }
+.official-info h3{ font-size:14px!important; gap:3px!important; }
+.official-role{ font-size:8.5px!important; margin-top:1px!important; }
+.official-meta{ margin-top:4px!important; font-size:7.2px!important; line-height:1.25!important; }
+.official-actions{ margin-top:4px!important; }
+.official-actions button{ padding:3px 6px!important; font-size:6.5px!important; }
+.official-dp{ width:65px!important; height:54px!important; }
+.swoosh{ bottom:-28px!important; height:57px!important; }
 
 @media(max-width:390px){
-  header .header-title{
-    max-width:calc(100% - 96px)!important;
-    font-size:11px!important;
-    text-align:center!important;
-  }
+  .container{width:94%!important}
+  .official-card{min-height:110px!important}
+  .official-content{ min-height:70px!important; padding:5px 6px 16px!important; }
+  .mini-brand{height:19px!important;font-size:6px!important}
+  .mini-brand img{width:12px!important;height:11px!important}
+  .official-info h3{font-size:13px!important}
+  .official-role{font-size:8px!important}
+  .official-meta{font-size:6.8px!important}
+  .official-dp{width:58px!important;height:48px!important}
+  .official-actions button{padding:2.5px 5px!important;font-size:6px!important}
+  .hero-reference>img{ width:48px!important;height:48px!important; border-radius:8px!important; margin-bottom:1px!important; }
+}
+@media(max-width:340px){
+  .hero-reference>img{ width:42px!important;height:42px!important; }
 }
 </style>
 
 </head>
-
 <body>
 
 <div class="sky" aria-hidden="true">
@@ -785,8 +508,10 @@ header .header-inner > .icon:first-child{
 <main class="wrap">
 
   <section class="hero hero-reference">
-    <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png"
+    <!-- StarMaker DP Image -->
+    <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg"
          alt="StarMaker" referrerpolicy="no-referrer">
+    
     <div class="hero-title-box" id="heroTitleBox">
       <div class="hero-title-viewport">
         <div class="hero-title-track" id="heroTitleTrack">
@@ -828,7 +553,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="danish starmaker 62111687683">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -848,7 +573,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="neeku starmaker 100053129818">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -868,7 +593,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="fawiza starmaker 100087350958">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -888,7 +613,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="suraj starmaker 13380772530">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -908,7 +633,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="pravya starmaker 13298419065">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -928,7 +653,7 @@ header .header-inner > .icon:first-child{
 
         <article class="official-card" data-q="rakshu starmaker 62157146343">
           <div class="mini-brand">
-            <img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer">
             <span>StarMaker</span>
           </div>
           <div class="official-content">
@@ -946,17 +671,17 @@ header .header-inner > .icon:first-child{
           <div class="swoosh swoosh-gold"></div>
         </article>
 
-        <article class="official-card" data-q="desolate starmaker 13291633049 𝘿𝙀𝙎𝙊𝙇𝘼𝙏𝙀"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>DESOLATE</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13291633049</div><div class="official-meta"><b>Name:</b> 𝘿𝙀𝙎𝙊𝙇𝘼𝙏𝙀</div><div class="official-actions"><button onclick="copyText('13291633049')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/5348024335855816/profile.jpg" alt="DESOLATE profile"></div><div class="swoosh swoosh-blue"></div></article>
+        <article class="official-card" data-q="desolate starmaker 13291633049 𝘿𝙀𝙎𝙊𝙇𝘼𝙏𝙀"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>DESOLATE</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13291633049</div><div class="official-meta"><b>Name:</b> 𝘿𝙀𝙎𝙊𝙇𝘼𝙏𝙀</div><div class="official-actions"><button onclick="copyText('13291633049')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/5348024335855816/profile.jpg" alt="DESOLATE profile"></div><div class="swoosh swoosh-blue"></div></article>
 
-        <article class="official-card" data-q="rashi starmaker 100096151497 rashi♡"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Rashi</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100096151497</div><div class="official-meta"><b>Name:</b> Rashi♡</div><div class="official-actions"><button onclick="copyText('100096151497')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/281474987546892/profile.jpg" alt="Rashi profile"></div><div class="swoosh swoosh-red"></div></article>
+        <article class="official-card" data-q="rashi starmaker 100096151497 rashi♡"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Rashi</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100096151497</div><div class="official-meta"><b>Name:</b> Rashi♡</div><div class="official-actions"><button onclick="copyText('100096151497')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/281474987546892/profile.jpg" alt="Rashi profile"></div><div class="swoosh swoosh-red"></div></article>
 
-        <article class="official-card" data-q="sʜ𝛂𝛈𝛂𝛄α starmaker 13355546123 sʜ𝛂𝛈𝛂𝛄α  ! ♥️"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Sʜ𝛂𝛈𝛂𝛄α</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13355546123</div><div class="official-meta"><b>Name:</b> Sʜ𝛂𝛈𝛂𝛄α  ! ♥️</div><div class="official-actions"><button onclick="copyText('13355546123')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/3377699722388256/profile.jpg" alt="Sʜ𝛂𝛈𝛂𝛄α profile"></div><div class="swoosh swoosh-purple"></div></article>
+        <article class="official-card" data-q="sʜ𝛂𝛈𝛂𝛄α starmaker 13355546123 sʜ𝛂𝛈𝛂𝛄α  ! ♥️"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Sʜ𝛂𝛈𝛂𝛄α</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13355546123</div><div class="official-meta"><b>Name:</b> Sʜ𝛂𝛈𝛂𝛄α  ! ♥️</div><div class="official-actions"><button onclick="copyText('13355546123')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/3377699722388256/profile.jpg" alt="Sʜ𝛂𝛈𝛂𝛄α profile"></div><div class="swoosh swoosh-purple"></div></article>
 
-        <article class="official-card" data-q="ටිε͢ꪀ𝛅𝛊ɓɭɛ starmaker 100124507028 ˹🇮🇳  ටිε͢ꪀ𝛅𝛊ɓɭɛ  ♩"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>ටිε͢ꪀ𝛅𝛊ɓɭɛ</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100124507028</div><div class="official-meta"><b>Name:</b> ˹🇮🇳  ටිε͢ꪀ𝛅𝛊ɓɭɛ  ♩</div><div class="official-actions"><button onclick="copyText('100124507028')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/844424943094205/profile.jpg" alt="ටිε͢ꪀ𝛅𝛊ɓɭɛ profile"></div><div class="swoosh swoosh-coral"></div></article>
+        <article class="official-card" data-q="ටිε͢ꪀ𝛅𝛊ɓɭɛ starmaker 100124507028 ˹🇮🇳  ටිε͢ꪀ𝛅𝛊ɓɭɛ  ♩"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>ටිε͢ꪀ𝛅𝛊ɓɭɛ</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100124507028</div><div class="official-meta"><b>Name:</b> ˹🇮🇳  ටිε͢ꪀ𝛅𝛊ɓɭɛ  ♩</div><div class="official-actions"><button onclick="copyText('100124507028')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/844424943094205/profile.jpg" alt="ටිε͢ꪀ𝛅𝛊ɓɭɛ profile"></div><div class="swoosh swoosh-coral"></div></article>
 
-        <article class="official-card" data-q="ටි꧊᭡ε͢ꪀɕɛꭆ starmaker 100128476348 ˹  ටි꧊᭡ε͢ꪀɕɛꭆ  ♩"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>ටි꧊᭡ε͢ꪀɕɛꭆ</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100128476348</div><div class="official-meta"><b>Name:</b> ˹  ටි꧊᭡ε͢ꪀɕɛꭆ  ♩</div><div class="official-actions"><button onclick="copyText('100128476348')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/1125899920101268/profile.jpg" alt="ටි꧊᭡ε͢ꪀɕɛꭆ profile"></div><div class="swoosh swoosh-yellow"></div></article>
+        <article class="official-card" data-q="ටි꧊᭡ε͢ꪀɕɛꭆ starmaker 100128476348 ˹  ටි꧊᭡ε͢ꪀɕɛꭆ  ♩"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>ටි꧊᭡ε͢ꪀɕɛꭆ</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 100128476348</div><div class="official-meta"><b>Name:</b> ˹  ටි꧊᭡ε͢ꪀɕɛꭆ  ♩</div><div class="official-actions"><button onclick="copyText('100128476348')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/1125899920101268/profile.jpg" alt="ටි꧊᭡ε͢ꪀɕɛꭆ profile"></div><div class="swoosh swoosh-yellow"></div></article>
 
-        <article class="official-card" data-q="nitesh starmaker 13309162890 ˹🇮🇳𝑹𝒊𝒅𝒆𝒓🏍️𝑵𝒊𝒕𝒆𝒔𝒉♩"><div class="mini-brand"><img src="https://i.postimg.cc/HsQBLfBD/file-0000000085a08211b6d121b2479234fe.png" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Nitesh</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13309162890</div><div class="official-meta"><b>Name:</b> ˹🇮🇳𝑹𝒊𝒅𝒆𝒓🏍️𝑵𝒊𝒕𝒆𝒔𝒉♩</div><div class="official-actions"><button onclick="copyText('13309162890')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/6192448701749932/profile.jpg" alt="Nitesh rider profile"></div><div class="swoosh swoosh-gold"></div></article>
+        <article class="official-card" data-q="nitesh starmaker 13309162890 ˹🇮🇳𝑹𝒊𝒅𝒆𝒓🏍️𝑵𝒊𝒕𝒆𝒔𝒉♩"><div class="mini-brand"><img src="https://i.postimg.cc/1tX46wwN/44960e3978895267f12b4e203afd1cb8-(2).jpg" alt="StarMaker" referrerpolicy="no-referrer"><span>StarMaker</span></div><div class="official-content"><div class="official-info"><h3>Nitesh</h3><div class="official-role">Indian Official</div><div class="official-meta"><b>ID:</b> 13309162890</div><div class="official-meta"><b>Name:</b> ˹🇮🇳𝑹𝒊𝒅𝒆𝒓🏍️𝑵𝒊𝒕𝒆𝒔𝒉♩</div><div class="official-actions"><button onclick="copyText('13309162890')">Copy ID</button></div></div><img class="official-dp" src="https://improxy.starmakerstudios.com/tools/im/200/production/users/6192448701749932/profile.jpg" alt="Nitesh rider profile"></div><div class="swoosh swoosh-gold"></div></article>
 
       </div>
     </div>
@@ -1128,385 +853,13 @@ function checkId(){
   }
 }
 
-document.getElementById("sid").addEventListener("keydown",e=>{
-  if(e.key==="Enter") checkId();
-});
-</script>
-
-
-<style>
-/* ===== FINAL COMPACT BOX SIZE ===== */
-.container{
-  width:min(92%, 560px)!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.panel{
-  margin:10px 0!important;
-  border-radius:10px!important;
-}
-.panel-title{
-  padding:7px 9px!important;
-  font-size:11px!important;
-}
-.panel-body{
-  padding:9px!important;
-}
-.hero-reference{
-  padding:7px 6px 7px!important;
-  border-radius:12px!important;
-}
-.hero-reference>img{
-  width:42px!important;
-  height:42px!important;
-  border-radius:7px!important;
-  margin-bottom:0!important;
-}
-.hero-title-box{
-  min-height:0!important;
-  padding:7px 5px!important;
-  border-radius:8px!important;
-}
-.hero-title-box h1{
-  font-size:13px!important;
-  gap:3px!important;
-}
-.hero-vtag{
-  width:19px!important;
-  height:19px!important;
-  flex-basis:19px!important;
-}
-.hero-title-box .hero-crown{
-  font-size:18px!important;
-}
-.hero-reference p{
-  font-size:8px!important;
-  margin-top:4px!important;
-}
-
-.focus-panel .focus-body{
-  padding:8px!important;
-}
-.focus-heading{
-  font-size:10px!important;
-  margin-bottom:4px!important;
-}
-.focus-body>p,
-.communication>p{
-  font-size:8.8px!important;
-  line-height:1.4!important;
-  margin-bottom:6px!important;
-}
-.focus-note{
-  margin:6px 0!important;
-  padding:6px!important;
-  font-size:8.8px!important;
-}
-.inner-title{
-  margin:0 -8px 7px!important;
-  padding:6px!important;
-  font-size:10px!important;
-}
-.comm-item{
-  margin:5px 0!important;
-}
-.comm-item strong{font-size:9.5px!important}
-.comm-item small{font-size:8px!important}
-.example-box{
-  margin-top:5px!important;
-  padding:6px!important;
-}
-.example-title{font-size:9px!important}
-.example-message{
-  padding:5px!important;
-  font-size:7.8px!important;
-}
-
-/* Reference directory and search */
-.cards{
-  gap:5px!important;
-}
-.search-box{
-  padding:6px!important;
-  margin-bottom:7px!important;
-}
-.search-box input{
-  padding:7px 9px!important;
-  font-size:9px!important;
-}
-.badge{
-  padding:4px 8px!important;
-  font-size:8px!important;
-}
-
-/* Official cards: reduce both width and height */
-.official-card{
-  min-height:118px!important;
-  border-radius:5px!important;
-  border-width:1.5px!important;
-}
-.mini-brand{
-  height:21px!important;
-  font-size:6.5px!important;
-}
-.mini-brand img{
-  width:14px!important;
-  height:13px!important;
-}
-.official-content{
-  min-height:77px!important;
-  padding:6px 7px 18px!important;
-  gap:5px!important;
-}
-.official-info h3{
-  font-size:14px!important;
-  gap:3px!important;
-}
-.official-role{
-  font-size:8.5px!important;
-  margin-top:1px!important;
-}
-.official-meta{
-  margin-top:4px!important;
-  font-size:7.2px!important;
-  line-height:1.25!important;
-}
-.official-actions{
-  margin-top:4px!important;
-}
-.official-actions button{
-  padding:3px 6px!important;
-  font-size:6.5px!important;
-}
-.official-dp{
-  width:65px!important;
-  height:54px!important;
-}
-.vtag{
-  width:11px!important;
-  height:11px!important;
-}
-.swoosh{
-  bottom:-28px!important;
-  height:57px!important;
-}
-
-/* Other common content boxes/buttons */
-.compare{
-  gap:5px!important;
-}
-.compare-card{
-  padding:6px!important;
-}
-.compare-label{
-  font-size:7px!important;
-}
-.compare-name{
-  font-size:8px!important;
-}
-button{
-  border-radius:5px!important;
-}
-@media(max-width:390px){
-  .container{width:94%!important}
-  .official-card{min-height:110px!important}
-  .official-content{
-    min-height:70px!important;
-    padding:5px 6px 16px!important;
-  }
-  .mini-brand{height:19px!important;font-size:6px!important}
-  .mini-brand img{width:12px!important;height:11px!important}
-  .official-info h3{font-size:13px!important}
-  .official-role{font-size:8px!important}
-  .official-meta{font-size:6.8px!important}
-  .official-dp{width:58px!important;height:48px!important}
-  .official-actions button{padding:2.5px 5px!important;font-size:6px!important}
-}
-</style>
-
-
-<style>
-/* ===== STARMAKER HERO DP — EXTRA SMALL ===== */
-.hero-reference{
-  padding:4px 5px 5px!important;
-}
-.hero-reference>img{
-  width:30px!important;
-  height:30px!important;
-  max-width:30px!important;
-  max-height:30px!important;
-  object-fit:cover!important;
-  border-radius:5px!important;
-  margin:0 auto 1px!important;
-  display:block!important;
-}
-@media(max-width:390px){
-  .hero-reference{
-    padding:3px 4px 4px!important;
-  }
-  .hero-reference>img{
-    width:28px!important;
-    height:28px!important;
-    max-width:28px!important;
-    max-height:28px!important;
-    border-radius:4px!important;
-  }
-}
-@media(max-width:340px){
-  .hero-reference>img{
-    width:25px!important;
-    height:25px!important;
-    max-width:25px!important;
-    max-height:25px!important;
-  }
-}
-</style>
-
-
-<style>
-/* ===== SCREENSHOT-MATCH: NARROWER CONTENT BOXES ===== */
-.container{
-  width:85%!important;
-  max-width:620px!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-
-/* Keep every major section aligned to the narrower container */
-.panel,
-.hero-reference{
-  width:100%!important;
-  box-sizing:border-box!important;
-}
-
-/* Official cards should follow the same narrower width */
-.cards{
-  width:100%!important;
-}
-.official-card{
-  width:100%!important;
-  box-sizing:border-box!important;
-}
-
-/* Slightly more visible side background space */
-@media(max-width:390px){
-  .container{
-    width:84%!important;
-    max-width:none!important;
-  }
-}
-</style>
-
-
-<style>
-/* ===== HINDI / ENGLISH SWITCH ===== */
-.lang-switch{
-  border:0;
-  color:#fff;
-  font:800 10px/1 Arial,Helvetica,sans-serif;
-  cursor:pointer;
-  padding:0;
-  width:46px!important;
-  min-width:46px!important;
-  white-space:nowrap;
-  background:rgba(255,255,255,.12)!important;
-}
-.lang-switch:active{transform:scale(.96)}
-@media(max-width:390px){
-  .lang-switch{width:43px!important;min-width:43px!important;font-size:9px}
-}
-</style>
-
-<script>
-(function(){
-  const T = {
-    "StarMaker Safety Guide · India":"StarMaker Safety Guide · India",
-    "How to Identify StarMaker Officials - India":"StarMaker Officials ko Kaise Pehchane - India",
-    "Learn how to identify an official employee, communicate safely and protect your account.":"Official employee ko pehchanana, safely communicate karna aur apne account ko protect karna seekhein.",
-    "Protect Yourself from Scammers and Hackers":"Scammers aur Hackers se Khud ko Bachayein",
-    "Always verify a person's identity through trusted StarMaker channels before treating them as staff or support.":"Kisi ko staff ya support maanane se pehle trusted StarMaker channels se unki identity verify karein.",
-    "Important safety rules:":"Important safety rules:",
-    "Never share your password, OTP, email code or recovery code.":"Apna password, OTP, email code ya recovery code kabhi share na karein.",
-    "Do not open suspicious links sent by unknown people.":"Unknown logon ke bheje suspicious links ko open na karein.",
-    "Do not send money for promised account features or special status.":"Account features ya special status ke vaade par paise na bhejein.",
-    "Use official in-app support for account problems.":"Account problems ke liye official in-app support ka use karein.",
-    "Reference Directory":"Reference Directory",
-    "This is a reference list for the page. A listing here is not proof of current employment; confirm through official StarMaker support.":"Yeh page ki reference list hai. Yahan listing current employment ka proof nahi hai; official StarMaker support se confirm karein.",
-    "Indian Official":"Indian Official",
-    "Copy ID":"ID Copy Karein",
-    "How to Identify an Official Employee":"Official Employee ko Kaise Pehchane",
-    "★ Look for the “Official Employee” Tag (Blue V)":"★ “Official Employee” Tag (Blue V) dekhein",
-    "The blue V (Official) tag is the official employee indicator. Genuine StarMaker officials may show this tag. However, sometimes the blue V is intentionally hidden on official profiles to prevent spam and unnecessary messages. Always confirm identity through trusted StarMaker channels.":"Blue V (Official) tag official employee ka indicator hai. Genuine StarMaker officials is tag ko dikha sakte hain. Lekin kabhi-kabhi blue V ko official profiles pe jaan-bujhkar hide kiya jata hai taaki spam aur unnecessary messages na aaye. Hamesha trusted StarMaker channels se identity confirm karein.",
-    "★ Blue V missing does not automatically mean the person is fake — it may be hidden on purpose. Always verify through official support.":"★ Blue V missing hone se person fake nahi hota — yeh jaan-bujhkar hide ho sakta hai. Hamesha official support se verify karein.",
-    "★ Do Not Trust Profiles Without Proper Verification":"★ Proper verification ke bina profiles par bharosa na karein",
-    "How to Communicate with an Official?":"Official se Kaise Communicate Karein?",
-    "To help support teams understand your issue quickly, send all relevant details in one clear message instead of only writing “hi” or “hello”.":"Support team ko aapki problem jaldi samajhne ke liye sirf “hi” ya “hello” ke bajay saari relevant details ek clear message mein bhejein.",
-    "Your SID":"Aapka SID",
-    "Your StarMaker account ID/SID.":"Aapka StarMaker account ID/SID.",
-    "Your prestige":"Aapka prestige",
-    "For example: Verified Broadcaster Level, VIP Level, or Family Captain status.":"Jaise: Verified Broadcaster Level, VIP Level ya Family Captain status.",
-    "Your specific question or concern":"Aapka specific question ya concern",
-    "Clearly explain what happened, what you need help with, and any relevant details.":"Kya hua, kis cheez mein help chahiye aur relevant details clearly batayein.",
-    "By sharing these details upfront, you make it easier for the support team to address your issue quickly and effectively.":"Yeh details pehle hi dene se support team aapki problem ko jaldi aur effectively solve kar sakti hai.",
-    "For example:":"Example:",
-    "Verify an ID":"ID Verify Karein",
-    "Enter an ID to check whether it appears in this page's reference directory. This is not an official StarMaker verification service.":"ID enter karke check karein ki woh is page ki reference directory mein listed hai ya nahi. Yeh official StarMaker verification service nahi hai.",
-    "Check":"Check Karein",
-    "How to Communicate Safely":"Safely Kaise Communicate Karein",
-    "When contacting support, provide only the information needed for your issue.":"Support se contact karte waqt sirf problem ke liye zaroori information dein.",
-    "Your StarMaker ID/SID when requested through a trusted support channel.":"Trusted support channel ke through maange jaane par apna StarMaker ID/SID dein.",
-    "A short description of the problem.":"Problem ka short description dein.",
-    "Relevant screenshots only when appropriate.":"Zaroorat hone par relevant screenshots dein.",
-    "Avoid":"Bachein",
-    "Sending your password, OTP or recovery code.":"Password, OTP ya recovery code bhejne se.",
-    "Better":"Behtar",
-    "Explain the issue and use the official support process.":"Problem explain karein aur official support process use karein.",
-    "Red Flags: Common Scams":"Red Flags: Common Scams",
-    "Strengthen Your Account Security":"Apne Account ki Security Strong Karein",
-    "Use available security features. Keep account and recovery settings up to date.":"Available security features use karein. Account aur recovery settings updated rakhein.",
-    "Keep credentials private. Never give passwords or verification codes to others.":"Credentials private rakhein. Passwords ya verification codes kisi ko na dein.",
-    "Be careful with links. Check the destination before entering any information.":"Links se savdhan rahein. Koi information enter karne se pehle destination check karein.",
-    "Report suspicious activity. Use trusted in-app support when possible.":"Suspicious activity report karein. Possible ho to trusted in-app support use karein."
-  };
-
-  // Preserve original English text on each text node so switching is reversible.
-  const all = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  const nodes = [];
-  while(all.nextNode()) nodes.push(all.currentNode);
-  nodes.forEach(n=>{
-    const s=n.nodeValue.trim();
-    if(s && T[s] && !n.dataset) {}
-    if(s && T[s] && !n._langSaved) {
-      n._langSaved = s;
-    }
+const sidInput = document.getElementById("sid");
+if(sidInput) {
+  sidInput.addEventListener("keydown",e=>{
+    if(e.key==="Enter") checkId();
   });
-
-  window.toggleLanguage = function(){
-    const btn=document.getElementById('langSwitch');
-    const hindi=btn.dataset.lang!=='hi';
-    btn.dataset.lang=hindi?'hi':'en';
-
-    nodes.forEach(n=>{
-      const original=n._langSaved;
-      if(!original) return;
-      if(T[original]) n.nodeValue=n.nodeValue.replace(original, hindi?T[original]:original);
-    });
-
-    document.querySelectorAll('input[placeholder]').forEach(input=>{
-      if(!input.dataset.enPlaceholder) input.dataset.enPlaceholder=input.placeholder;
-      if(hindi){
-        input.placeholder="Naam, ID ya handle search karein";
-      }else{
-        input.placeholder=input.dataset.enPlaceholder;
-      }
-    });
-
-    btn.textContent=hindi?'English':'हिंदी';
-    document.documentElement.lang=hindi?'hi':'en';
-  };
-})();
+}
 </script>
-
 
 <script id="hero-auto-rail-script">
 (function(){
@@ -1519,14 +872,11 @@ button{
     track.classList.remove('is-rail');
     track.style.removeProperty('--hero-slide-distance');
 
-    // Wait for the real font/image dimensions before measuring.
     requestAnimationFrame(function(){
       const distance = Math.max(0, track.scrollWidth - viewport.clientWidth);
 
       if(distance > 2){
         track.style.setProperty('--hero-slide-distance', distance + 'px');
-
-        // Shorter on very small screens; always pauses at the useful positions.
         const duration = Math.min(9, Math.max(6, 5 + distance / 35));
         track.style.setProperty('--hero-rail-duration', duration + 's');
         track.classList.add('is-rail');
@@ -1543,21 +893,19 @@ button{
 })();
 </script>
 
+<script>
+// Bypass cache for User DPs only (All time new refresh)
+window.addEventListener('DOMContentLoaded', () => {
+  const userDps = document.querySelectorAll('.official-dp');
+  const timeNow = new Date().getTime(); // Generate current timestamp
+  
+  userDps.forEach(dp => {
+    // Append timestamp to bypass browser cache
+    const separator = dp.src.includes('?') ? '&' : '?';
+    dp.src = dp.src + separator + "nocache=" + timeNow;
+  });
+});
+</script>
+
 </body>
 </html>
-
-<style>
-/* Final hero StarMaker DP size */
-@media(max-width:390px){
-  .hero-reference>img{
-    width:48px!important;height:48px!important;
-    border-radius:8px!important;
-    margin-bottom:1px!important;
-  }
-}
-@media(max-width:340px){
-  .hero-reference>img{
-    width:42px!important;height:42px!important;
-  }
-}
-</style>
